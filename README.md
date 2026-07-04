@@ -76,7 +76,7 @@ After shifting by `X` and `42`, then rotating the points backward by `a`, the tr
 
 ## Citation
 
-- Wikipedia, "Rotation matrix": https://en.wikipedia.org/wiki/Rotation_matrix
+- Wikipedia, "Reversing a 2D Rotation matrix": https://en.wikipedia.org/wiki/Rotation_matrix
 
 ## Files
 
