@@ -14,11 +14,11 @@ The unknowns are:
 The curve can be written as:
 
 $$
-x = t \cos(\theta) - e^{Mt}\sin(0.3t)\sin(\theta) + X
+x = t \cos(\theta) - e^{M|t|}\sin(0.3t)\sin(\theta) + X
 $$
 
 $$
-y = 42 + t\sin(\theta) + e^{Mt}\sin(0.3t)\cos(\theta)
+y = 42 + t\sin(\theta) + e^{M|t|}\sin(0.3t)\cos(\theta)
 $$
 
 The first is to undo the geometry first by subtracting the shift and unrotating the equations
@@ -40,7 +40,7 @@ u = t
 $$
 
 $$
-v = e^{Mu}\sin(0.3u)
+v = e^{M|u|}\sin(0.3u)
 $$
 
 ## Method used in the notebook
@@ -66,6 +66,11 @@ The notebook predicts:
 - `θ = 30.00000000`
 - `X = 55.00000000`
 - `M = 0.0299999897`
+
+The fit check also gives:
+
+- `Mean abs residual = 0.0000152057`
+- `Uniform-sample L1 score = 0.0001248324`
 
 
 ## Desmos section
