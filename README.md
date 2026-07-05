@@ -46,18 +46,18 @@ $$
 ## Method used in the notebook
 
 1. Load the points from `xy_data.csv`.
-2. Try a range of values for `θ` and `X`, then keep the pair that fits best.
-3. For each pair, shift the data by `X` and `42`, then rotate the points backward.
+2. Try a broad range of values for `θ` and `X` first then narrow in around the best-looking region by measuring their transformed error and rechecked after transformations are undone.
+3. For each pair shift the data by `X` and `42` then rotate the points backward.
 4. Read the transformed coordinates as `u` for forward motion and `v` for the wave term.
 5. Estimate `M` from the transformed wave values.
-6. Print a small residual sample from the transformed points and also compute a uniform-sample L1 score by taking the mean absolute error with 500 points.
-7. Check a smaller window around that result to make sure it is stable.
+6. Score each pair by the transformed residual error, then repeat the search with a smaller range around the best result.
+7. Print a small residual sample from the transformed points and also compute a uniform-sample L1 score by taking the mean absolute error with 500 points.
 
 ## Why this works
 
 Reduce the main equations by undoing the rotation and shift to get a simple rotation curve.
 
-Once the rotation and shift are removed the curve becomes much easier to interpret. The notebook can then test candidate `θ` and `X` values directly from the data, back out `u` and `v` and choose the pair that gives the smallest transformed error.
+Once the rotation and shift are removed the curve becomes much easier to interpret. The notebook uses a coarse-to-fine search: it checks many `θ` and `X` pairs over a wide range, keeps the pair with the smallest transformed residual error, and then searches again in a smaller window around that pair.
 
 ## Result from the notebook
 
