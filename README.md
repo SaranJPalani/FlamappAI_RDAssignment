@@ -5,7 +5,7 @@
 Provides a CSV file, `xy_data.csv` containing x and y coordinates of a curve in a random order and we are asked to find the value of the unknowns
 
 The unknowns are:
-- `theta` = the rotation angle
+- `θ` = the rotation angle
 - `M` = the growth/decay factor inside the wave term
 - `X` = the horizontal shift
 
@@ -46,7 +46,7 @@ $$
 ## Method used in the notebook
 
 1. Load the points from `xy_data.csv`.
-2. Try a range of values for `theta` and `X`, then keep the pair that fits best.
+2. Try a range of values for `θ` and `X`, then keep the pair that fits best.
 3. For each pair, shift the data by `X` and `42`, then rotate the points backward.
 4. Read the transformed coordinates as `u` for forward motion and `v` for the wave term.
 5. Estimate `M` from the transformed wave values.
@@ -57,13 +57,13 @@ $$
 
 Reduce the main equations by undoing the rotation and shift to get a simple rotation curve.
 
-Once the rotation and shift are removed the curve becomes much easier to interpret. The notebook can then test candidate `theta` and `X` values directly from the data, back out `u` and `v` and choose the pair that gives the smallest transformed error.
+Once the rotation and shift are removed the curve becomes much easier to interpret. The notebook can then test candidate `θ` and `X` values directly from the data, back out `u` and `v` and choose the pair that gives the smallest transformed error.
 
 ## Result from the notebook
 
 The notebook predicts:
 
-- `theta = 30.00000000`
+- `θ = 30.00000000`
 - `X = 55.00000000`
 - `M = 0.0299999897`
 
@@ -74,7 +74,7 @@ The Desmos graph is the visual check for the same method.
 
 In the screenshot, I used:
 
-- `a = 0.5236` radians, which is 30 degrees
+- `a = 0.5236` radians, which is 30°
 - `X = 55`
 - `M = 0.0299999897`
 
