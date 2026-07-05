@@ -13,43 +13,51 @@ The unknowns are:
 
 The curve can be written as:
 
-```text
-x = t + cos(theta) - exp(M * t) * sin(0.3 * t) * sin(theta) + X
+$$
+x = t \cos(\theta) - e^{Mt}\sin(0.3t)\sin(\theta) + X
+$$
 
-y = 42 + t + sin(theta) + exp(M * t) * sin(0.3 * t) * cos(theta)
-```
+$$
+y = 42 + t\sin(\theta) + e^{Mt}\sin(0.3t)\cos(\theta)
+$$
 
 The first is to undo the geometry first by subtracting the shift and unrotating the equations
 
 After subtracting the shift and rotating backward:
 
-```text
-x - X = cos(theta) * u - sin(theta) * v
+$$
+x - X = \cos(\theta)u - \sin(\theta)v
+$$
 
-y - 42 = sin(theta) * u + cos(theta) * v
-```
+$$
+y - 42 = \sin(\theta)u + \cos(\theta)v
+$$
 
 Here, `u` behaves like the forward motion of the curve and `v` behaves like the wave part:
 
-```text
-v = exp(M * u) * sin(0.3 * u)
-```
+$$
+u = t
+$$
+
+$$
+v = e^{Mu}\sin(0.3u)
+$$
 
 ## Method used in the notebook
 
 1. Load the points from `xy_data.csv`.
-2. Try values of `theta` and `X`.
-3. Shift the data by `X` and `42`.
-4. Rotate the points backward.
+2. Try a range of values for `theta` and `X`, then keep the pair that fits best.
+3. For each pair, shift the data by `X` and `42`, then rotate the points backward.
+4. Read the transformed coordinates as `u` for forward motion and `v` for the wave term.
 5. Estimate `M` from the transformed wave values.
-6. Score the fit by checking how small the transformed residuals are.
-7. Run a narrower validation search around the best result.
+6. Print a small residual sample from the transformed points and also compute a uniform-sample L1 score by taking the mean absolute error with 500 points.
+7. Check a smaller window around that result to make sure it is stable.
 
 ## Why this works
 
 Reduce the main equations by undoing the rotation and shift to get a simple rotation curve.
 
-Once the rotation and shift are removed, the curve becomes much easier to interpret. That turns the problem into a cleaner parameter search instead of a brute-force guess over everything at the same time.
+Once the rotation and shift are removed the curve becomes much easier to interpret. The notebook can then test candidate `theta` and `X` values directly from the data, back out `u` and `v` and choose the pair that gives the smallest transformed error.
 
 ## Result from the notebook
 
