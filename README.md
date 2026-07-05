@@ -85,7 +85,7 @@ In the screenshot, I used:
 
 ![Desmos screenshot](image.png)
 
-After shifting by `X` and `42`, then rotating the points backward by `a`, the transformed points line up with the wave model very closely. That is why the Desmos graph supports the same final answer as the notebook.
+After shifting by `X` and `42`, then rotating the points backward by `a`, the green points show the transformed actual data and the blue curve shows the predicted wave model. They line up very closely, which is why the Desmos graph supports the same final answer as the notebook.
 
 ## Citation
 
